@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="com.controller.RegistrationUserListController"%>
 <%@page import= "com.controller.AjaxHandler" %>
-<%@ page errorPage="Error.jsp" %> 
+<%@ page errorPage="error.jsp" %> 
 <!DOCTYPE html>
 <html>
 	<head>
