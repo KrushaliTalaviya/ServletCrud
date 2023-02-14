@@ -21,33 +21,6 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
 		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-		<script>
-			$(document).ready(function() {
-				$('.btn1').click(function(e){
-					e.preventDefault();
-					//console.log("hello");
-					var deleteid = $(this).val();
-					Swal.fire ({
-					    title: 'Are you sure?',
-					    text: "You won't be able to revert this!",
-					    icon: 'warning',
-					    showCancelButton: true,
-					    confirmButtonColor: '#3085d6',
-					    cancelButtonColor: '#d33',
-					    confirmButtonText: 'Yes, delete it!'
-						}).then((result) => {
-						if (result.value) {
-							Swal.fire(
-							    'Deleted!',
-							    'Your file has been deleted.',
-							    'success'
-							)
-			           			window.location = "registrationUserListController?action=deleteUser&id="+deleteid; 
-			           		}
-					})
-				})
-			})
-		</script>
 	</head>
 	<body>
 		<br>
@@ -113,4 +86,31 @@
 			</div>
 		</div>
 	</body>
+	<script>
+		$(document).ready(function() {
+			$('.btn1').click(function(e){
+				e.preventDefault();
+				//console.log("hello");
+				var deleteid = $(this).val();
+				Swal.fire ({
+				    title: 'Are you sure?',
+				    text: "You won't be able to revert this!",
+				    icon: 'warning',
+				    showCancelButton: true,
+				    confirmButtonColor: '#3085d6',
+				    cancelButtonColor: '#d33',
+				    confirmButtonText: 'Yes, delete it!'
+					}).then((result) => {
+					if (result.value) {
+						Swal.fire(
+						    'Deleted!',
+						    'Your file has been deleted.',
+						    'success'
+						)
+		           			window.location = "registrationUserListController?action=deleteUser&id="+deleteid; 
+		           		}
+				})
+			})
+		})
+	</script>
 </html>

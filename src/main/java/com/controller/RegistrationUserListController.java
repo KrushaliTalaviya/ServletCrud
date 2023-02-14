@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.dao.RegistrationUserListDao;
+import com.dao.RegistrationDao;
 import com.model.RegistrationModel;
 
 /**
@@ -34,7 +34,7 @@ public class RegistrationUserListController extends HttpServlet {
 			// RegistrationUserListDao class and editUserData Method call and return model
 			RegistrationModel recordEdit = null;
 			try {
-				recordEdit = new RegistrationUserListDao().editUserData(id);
+				recordEdit = new RegistrationDao().editUserData(id);
 			} catch (Exception exception) {
 				response.sendRedirect("error.jsp");
 				exception.printStackTrace();
@@ -49,7 +49,7 @@ public class RegistrationUserListController extends HttpServlet {
 			int recordDeleted = 0;
 
 			try {
-				recordDeleted = new RegistrationUserListDao().doDeleteData(id);
+				recordDeleted = new RegistrationDao().doDeleteData(id);
 			} catch (Exception exception) {
 				response.sendRedirect("error.jsp");
 				exception.printStackTrace();

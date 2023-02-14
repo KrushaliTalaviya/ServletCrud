@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.dao.RegistrationDao;
-import com.dao.RegistrationUserListDao;
 import com.model.RegistrationModel;
 
 /**
@@ -61,7 +60,7 @@ public class RegistrationController extends HttpServlet {
 			// Update model and return Integer value
 			int recordUpdated = 0;
 			try {
-				recordUpdated = new RegistrationUserListDao().doUpdateData(registrationModel);
+				recordUpdated = new RegistrationDao().doUpdateData(registrationModel);
 			} catch (Exception exception) {
 				request.getRequestDispatcher("/error.jsp").forward(request, response);
 				exception.printStackTrace();

@@ -19,84 +19,6 @@
 		<script src='https://kit.fontawesome.com/a076d05399.js'></script>
 		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-		<style>
-			#frm {
-				width: 400px;
-				height: auto;
-				margin: auto;
-				margin-top: 50px;
-				margin-bottom: 20px;
-			}
-		</style>
-		<!-- Form validation using jQuery -->
-		<script>
-			$(document).ready(function() {
-				$("#registration-form").validate()
-			});
-		</script>
-		<!-- Password validation using javascript -->
-		<script>
-			function validate(){
-				var regexpass=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
-				var password=document.myForm.password.value;
-				var status;
-				if(!regexpass.test(password)) {
-	    			swal("Password must be between 8 to 15 characters which contain at least one lowercase letter, one uppercase letter, one numeric digit, and one special character");
-	    			status = false;
-				} else {
-					status = true;
-				}
-				return status;
-			}
-		</script>
-		<!-- Contact validation Contact already exists in database or not -->
-		<script type="text/javascript">
-			$(document).ready(function() {
-				$("#contact").on(//"blur",
-					"input",function(e) {
-					$('#msg').hide();
-					if ($('#contact').val() == null || $('#contact').val() == "") {
-						$('#msg').show();
-						$("#msg").html("Username is required field.")
-						.css("color","red");
-					} else {
-						$( "#button" ).attr( "disabled", true );
-						$.ajax({
-							type : "POST",
-							url : "ajaxHandler",
-							data : $('#frm').serialize(),
-							dataType : "html",
-							cache : false,
-							success : function(msg) {
-										var value = "true";
-										if (msg == value) {
-											$("#button").attr( "disabled", true );
-											swal("Contact is Already Exists");
-										} else {
-											$( "#button" ).attr( "disabled", false );
-										}
-									},
-							error : function(jqXHR , textStatus , errorThrown) {
-										$('#msg').show();
-										$("#msg").html(textStatus + " " + errorThrown);
-									}
-						});
-					}
-				});
-			});
-		</script>
-		<!-- Restrication of alphabates in contact field -->
-		<script type="text/javascript">
-			/*code: 48-57 Numbers*/
-			function restrictAlphabets(e) {
-				var x = e.which || e.keycode;
-				if ((x >= 48 && x <= 57)) {
-					return true;
-				} else {
-					return false;
-				}
-			}
-		</script>
 	</head>
 	<body class="container-fluid">
 		<h3 id="result"></h3>
@@ -192,4 +114,66 @@
 			</form>
 		</c:if>
 	</body>
+	<script>
+		<!-- Form validation using jQuery -->
+		$(document).ready(function() {
+			$("#registration-form").validate()
+		});
+		<!-- Password validation using javascript -->
+		function validate(){
+			var regexpass=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
+			var password=document.myForm.password.value;
+			var status;
+			if(!regexpass.test(password)) {
+    			swal("Password must be between 8 to 15 characters which contain at least one lowercase letter, one uppercase letter, one numeric digit, and one special character");
+    			status = false;
+			} else {
+				status = true;
+			}
+			return status;
+		}
+		<!-- Contact validation Contact already exists in database or not -->
+		$(document).ready(function() {
+			$("#contact").on(//"blur",
+				"input",function(e) {
+				$('#msg').hide();
+				if ($('#contact').val() == null || $('#contact').val() == "") {
+					$('#msg').show();
+					$("#msg").html("Username is required field.")
+					.css("color","red");
+				} else {
+					$( "#button" ).attr( "disabled", true );
+					$.ajax({
+						type : "POST",
+						url : "ajaxHandler",
+						data : $('#frm').serialize(),
+						dataType : "html",
+						cache : false,
+						success : function(msg) {
+									var value = "true";
+									if (msg == value) {
+										$("#button").attr( "disabled", true );
+										swal("Contact is Already Exists");
+									} else {
+										$( "#button" ).attr( "disabled", false );
+									}
+								},
+						error : function(jqXHR , textStatus , errorThrown) {
+									$('#msg').show();
+									$("#msg").html(textStatus + " " + errorThrown);
+								}
+					});
+				}
+			});
+		});
+		/*code: 48-57 Numbers*/
+		function restrictAlphabets(e) {
+			var x = e.which || e.keycode;
+			if ((x >= 48 && x <= 57)) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+	</script>
 </html>
