@@ -36,7 +36,7 @@ public class RegistrationUserListController extends HttpServlet {
 			try {
 				recordEdit = new RegistrationUserListDao().editUserData(id);
 			} catch (Exception exception) {
-				response.sendRedirect("Error.jsp");
+				response.sendRedirect("error.jsp");
 				exception.printStackTrace();
 			}
 			request.setAttribute("editUserData", recordEdit);
@@ -51,7 +51,7 @@ public class RegistrationUserListController extends HttpServlet {
 			try {
 				recordDeleted = new RegistrationUserListDao().doDeleteData(id);
 			} catch (Exception exception) {
-				response.sendRedirect("Error.jsp");
+				response.sendRedirect("error.jsp");
 				exception.printStackTrace();
 			}
 
