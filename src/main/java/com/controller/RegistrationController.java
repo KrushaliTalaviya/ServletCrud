@@ -45,7 +45,7 @@ public class RegistrationController extends HttpServlet {
 			try {
 				recordInsert = new RegistrationDao().doInsertData(registrationModel);
 			} catch (Exception exception) {
-				response.sendRedirect("Error.jsp");
+				response.sendRedirect("error.jsp");
 				exception.printStackTrace();
 			}
 
@@ -63,7 +63,7 @@ public class RegistrationController extends HttpServlet {
 			try {
 				recordUpdated = new RegistrationUserListDao().doUpdateData(registrationModel);
 			} catch (Exception exception) {
-				request.getRequestDispatcher("/Error.jsp").forward(request, response);
+				request.getRequestDispatcher("/error.jsp").forward(request, response);
 				exception.printStackTrace();
 			}
 
