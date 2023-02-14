@@ -9,7 +9,7 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%-- <%@page isErrorPage = "true" %> --%>
-<%@ page errorPage="Error.jsp" %> 
+<%@ page errorPage="error.jsp" %> 
 <html>
 	<head>
 		<title>User-List</title>
@@ -104,7 +104,7 @@
 								preparedStatement.close();
 							}
 							catch (Exception e) {
-								response.sendRedirect("Error.jsp");
+								response.sendRedirect("error.jsp");
 								e.printStackTrace();
 							}
 						%>
