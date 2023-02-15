@@ -1,0 +1,16 @@
+@charset "ISO-8859-1";
+#userbtn{
+	font-size:20px; 
+	margin-top: 10px; 
+	margin-bottom: -3%; 
+	margin-right: 34%;
+}
+
+#frm {
+	width: 400px;
+	height: auto;
+	margin: auto;
+	margin-top: 50px;
+	margin-bottom: 20px;
+}
+		
