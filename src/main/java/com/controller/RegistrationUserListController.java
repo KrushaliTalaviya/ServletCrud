@@ -34,9 +34,9 @@ public class RegistrationUserListController extends HttpServlet {
 			// RegistrationUserListDao class and editUserData Method call and return model
 			RegistrationModel recordEdit = null;
 			try {
-				recordEdit = new RegistrationDao().editUserData(id);
+				recordEdit = new RegistrationDao().getUserDataById(id);
 			} catch (Exception exception) {
-				response.sendRedirect("error.jsp");
+				response.sendRedirect("Error.jsp");
 				exception.printStackTrace();
 			}
 			request.setAttribute("editUserData", recordEdit);
@@ -49,9 +49,9 @@ public class RegistrationUserListController extends HttpServlet {
 			int recordDeleted = 0;
 
 			try {
-				recordDeleted = new RegistrationDao().doDeleteData(id);
+				recordDeleted = new RegistrationDao().deleteuserData(id);
 			} catch (Exception exception) {
-				response.sendRedirect("error.jsp");
+				response.sendRedirect("Error.jsp");
 				exception.printStackTrace();
 			}
 

@@ -19,7 +19,7 @@ public class RegistrationDao {
 	int executeUpdate = 0;
 	RegistrationModel registrationModel;
 
-	public int doInsertData(RegistrationModel registrationModel) throws SQLException {
+	public int insertUserData(RegistrationModel registrationModel) throws SQLException {
 		connection = DBConnection.getConnection(); // Get connection
 		String query = "INSERT INTO userlist( firstName, lastName, userName, Password, address, contact) VALUES(?, ?, ?, ?, ?, ?)";
 		try {
@@ -41,7 +41,7 @@ public class RegistrationDao {
 		return executeUpdate;
 	}
 
-	public RegistrationModel editUserData(int id) throws SQLException {
+	public RegistrationModel getUserDataById(int id) throws SQLException {
 		connection = DBConnection.getConnection();
 		String query = "SELECT * FROM userlist WHERE id = ?";
 		try {
@@ -66,7 +66,7 @@ public class RegistrationDao {
 		return registrationModel;
 	}
 
-	public int doUpdateData(RegistrationModel registrationModel) throws Exception {
+	public int updateUserData(RegistrationModel registrationModel) throws Exception {
 		connection = DBConnection.getConnection(); // Connection database
 		String query = "UPDATE userlist SET firstName=?, lastName=?, userName=?, Password=?, address=?, contact=? WHERE id=?";
 
@@ -89,7 +89,7 @@ public class RegistrationDao {
 		return executeUpdate;
 	}
 
-	public int doDeleteData(int id) throws SQLException {
+	public int deleteuserData(int id) throws SQLException {
 		executeUpdate = 0;
 		connection = DBConnection.getConnection(); // Connection database
 		System.out.println(id);

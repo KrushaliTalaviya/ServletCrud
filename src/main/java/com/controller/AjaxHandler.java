@@ -49,7 +49,7 @@ public class AjaxHandler extends HttpServlet {
 					out.print("");
 				}
 			} catch (Exception e) {
-				response.sendRedirect("error.jsp");
+				response.sendRedirect("Error.jsp");
 				e.printStackTrace();
 			}
 		} else {

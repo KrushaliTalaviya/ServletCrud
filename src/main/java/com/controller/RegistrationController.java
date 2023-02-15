@@ -42,9 +42,9 @@ public class RegistrationController extends HttpServlet {
 			// Insert data and Return Integer value
 			int recordInsert = 0;
 			try {
-				recordInsert = new RegistrationDao().doInsertData(registrationModel);
+				recordInsert = new RegistrationDao().insertUserData(registrationModel);
 			} catch (Exception exception) {
-				response.sendRedirect("error.jsp");
+				response.sendRedirect("Error.jsp");
 				exception.printStackTrace();
 			}
 
@@ -60,9 +60,9 @@ public class RegistrationController extends HttpServlet {
 			// Update model and return Integer value
 			int recordUpdated = 0;
 			try {
-				recordUpdated = new RegistrationDao().doUpdateData(registrationModel);
+				recordUpdated = new RegistrationDao().updateUserData(registrationModel);
 			} catch (Exception exception) {
-				request.getRequestDispatcher("/error.jsp").forward(request, response);
+				request.getRequestDispatcher("/Error.jsp").forward(request, response);
 				exception.printStackTrace();
 			}
 
